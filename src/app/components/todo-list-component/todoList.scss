@@ -1,0 +1,54 @@
+@import "../../../assets/styles/variables";
+#app{
+  width: 1920px;
+}
+h1{
+  font-size: 22px;
+}
+#my_input{
+  padding:20px 30px 20px 30px;
+  border: none;
+  background: rgba(0,0,0,0.03);
+  width: 50%;
+}
+.todo-list{
+  padding: 0;
+  margin: 0;
+}
+.todo-item{
+  list-style: none;
+  padding:20px 30px 20px 30px;
+  background: rgba(0,0,0,0.03);
+  width: 50%;
+  border-top: 1px solid #eee;
+}
+.completed{
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.phrase{
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: darkcyan;
+}
+footer{
+  //float: left;
+  //margin-top: 50px;
+  padding:20px 30px 20px 30px;
+  background: rgba(0,0,0,0.03);
+  width: 50%;
+  border-bottom: 1px solid #eee;
+  border-top:1px solid #eee;
+}
+.btns{
+  margin-top: 20px;
+}
+.btn{
+  border: none;
+  width: 70px;
+  height: 35px;
+  background-color: darkcyan;
+  color: white;
+}

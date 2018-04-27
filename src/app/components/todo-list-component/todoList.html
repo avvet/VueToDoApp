@@ -1,0 +1,25 @@
+<div class="todo-list">
+  <!--<h2 class="main-title">Welcome to VueTube {{msg}}</h2>-->
+  <div id="app">
+    <header class="header">
+      <h1 v-once>{{title}}</h1>
+      <input type="text" id="my_input" placeholder = 'add new task' v-model = 'newToDo' @keyup.enter = 'addToDo'>
+    </header>
+    <div class="main">
+      <ul class="todo-list">
+        <li class="todo-item" v-for = 'todo in todos' :class ="{completed:todo.completed}">
+          <input type="checkbox" v-model = 'todo.completed'>{{todo.name}}
+
+        </li>
+      </ul>
+    </div>
+    <div class="btns">
+      <button class="btn remain-btn" @click = "remaining" >to do</button>
+      <button class="btn done-btn" @click = "done">done</button>
+    </div>
+    <footer>
+      <span id = "phrase"> 0 tasks</span>
+    </footer>
+  </div>
+
+</div>
