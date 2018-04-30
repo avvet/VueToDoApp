@@ -1,25 +1,18 @@
-<div class="todo-list">
-  <!--<h2 class="main-title">Welcome to VueTube {{msg}}</h2>-->
-  <div id="app">
-    <header class="header">
-      <h1 v-once>{{title}}</h1>
-      <input type="text" id="my_input" placeholder = 'add new task' v-model = 'newToDo' @keyup.enter = 'addToDo'>
-    </header>
-    <div class="main">
-      <ul class="todo-list">
-        <li class="todo-item" v-for = 'todo in todos' :class ="{completed:todo.completed}">
-          <input type="checkbox" v-model = 'todo.completed'>{{todo.name}}
-
-        </li>
-      </ul>
-    </div>
-    <div class="btns">
-      <button class="btn remain-btn" @click = "remaining" >to do</button>
-      <button class="btn done-btn" @click = "done">done</button>
-    </div>
-    <footer>
-      <span id = "phrase"> 0 tasks</span>
-    </footer>
+<div class="todo_list_container">
+  <h1 class="main_title">todo list</h1>
+  <div class="todo_header_container">
+    <input type="text" class="todo_input">
+    <button class="todo_btn_add">add</button>
+    <div class="divider"></div>
   </div>
-
+  <div class="todo_items_container">
+    <div class="todo_item">
+     <div class="checkbox checked"></div>
+      <p class="item_title">jhb</p>
+      <div class="btn_container">
+        <div class="btn btn_edit">EDIT</div>
+        <div class="btn btn_delete">DELETE</div>
+      </div>
+    </div>
+  </div>
 </div>

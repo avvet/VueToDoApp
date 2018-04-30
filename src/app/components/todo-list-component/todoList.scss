@@ -1,54 +1,115 @@
 @import "../../../assets/styles/variables";
-#app{
-  width: 1920px;
-}
-h1{
-  font-size: 22px;
-}
-#my_input{
-  padding:20px 30px 20px 30px;
-  border: none;
-  background: rgba(0,0,0,0.03);
-  width: 50%;
-}
-.todo-list{
-  padding: 0;
-  margin: 0;
-}
-.todo-item{
-  list-style: none;
-  padding:20px 30px 20px 30px;
-  background: rgba(0,0,0,0.03);
-  width: 50%;
-  border-top: 1px solid #eee;
-}
-.completed{
-  text-decoration: line-through;
-  color: #ccc;
+.todo_list_container{
+  padding: 20px;
+  width: 500px;
+  margin: 100px auto;
+  min-height: 500px;
+  background: ghostwhite;
+  border-radius:10px;
+  -webkit-box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.75);
+  box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.75);
+  .main_title{
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: Roboto;
+    color: darkslateblue;
+  }
+  .todo_header_container {
+    margin-top: 10px;
+    .todo_input{
+      float: left;
+      width: 300px;
+      height: 36px;
+      margin-right: 5px;
+      border: 1px solid lightgray;
+      border-radius: 3px;
+      padding: 0 20px 0 20px;
+      font-family: Roboto;
+      font-size: 16px;
+      color: #8d81d6;
+      transition: border .3s;
+      &:focus {
+        border: 1px solid darkcyan;
+      }
+    }
+    .todo_btn_add{
+      float: left;
+      width: 90px;
+      height: 38px;
+      border:none;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      color: #ffffff;
+      background: darkblue;
+      &:active {
+        background: lighten(darkblue, 20%);
+      }
+    }
+    .divider {
+      float: left;
+      margin-top: 20px;
+      width: 100%;
+      height: 1px;
+      background: lightgray;
+    }
+  }
+  .todo_items_container{
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+    .todo_item{
+      float: left;
+      width: 100%;
+      border-radius:3px;
+      background-color: white;
+      height: 50px;
+      margin-bottom: 15px;
+      -webkit-box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.25);
+      -moz-box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.25);
+      box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.25);
+      transition: box-shadow .3s;
+      &:hover {
+        -webkit-box-shadow: 4px 3px 13px -5px rgba(0,0,0,0650);
+        -moz-box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.60);
+        box-shadow: 4px 3px 13px -5px rgba(0,0,0,0.60);
+      }
+      .checkbox{
+        float: left;
+        width: 15px;
+        height: 15px;
+        margin-right: 20px;
+        margin-top: 15px;
+        margin-left: 12px;
+        border-radius: 3px;
+        border: 1px solid #8d81d6;
+      }
+      .checked{
+        background-color: lightgray;
+      }
+      .item_title{
+        float: left;
+        margin: 0;
+        line-height: 50px;
+        font-family: Roboto;
+       }
+      .btn_container{
+        float: right;
+        margin-top: 0px;
+        margin-right: 20px;
+        .btn{
+          float: left;
+          margin-right: 20px;
+          font-family: Roboto;
+          line-height: 50px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
 
-.phrase{
-  font-size: 14px;
-  font-weight: bold;
-  margin-left: 10px;
-  color: darkcyan;
-}
-footer{
-  //float: left;
-  //margin-top: 50px;
-  padding:20px 30px 20px 30px;
-  background: rgba(0,0,0,0.03);
-  width: 50%;
-  border-bottom: 1px solid #eee;
-  border-top:1px solid #eee;
-}
-.btns{
-  margin-top: 20px;
-}
-.btn{
-  border: none;
-  width: 70px;
-  height: 35px;
-  background-color: darkcyan;
-  color: white;
-}

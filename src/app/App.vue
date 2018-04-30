@@ -1,10 +1,7 @@
 <template>
   <div id="'app">
-    <!--<h1>App vue rendered! {{msg}}</h1>-->
-    <!--<img style="width:140px; margin:14px;" src="./assets/img/logo.png"/>-->
     <image-container></image-container>
     <todo-list></todo-list>
-    <!--<img src="../assets/img/familyguy.png" width="100" height="300" alt="">-->
   </div>
 </template>
 
@@ -14,9 +11,7 @@
 
   export default {
     data() {
-      return {
-        // msg: "DataMsg"
-      }
+      return {}
     },
     name: 'App',
     components: {
