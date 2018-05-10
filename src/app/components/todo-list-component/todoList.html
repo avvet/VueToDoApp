@@ -1,18 +1,56 @@
-<div class="todo_list_container">
-  <h1 class="main_title">todo list</h1>
-  <div class="todo_header_container">
-    <input type="text" class="todo_input">
-    <button class="todo_btn_add">add</button>
-    <div class="divider"></div>
+<div id="app">
+  <h1 class="main_todo_list_title" v-bind:class="[isGreen?'green':'upperCase']">{{message}}</h1>
+  <button class='todo_list_button' v-on:click="reverseMessage">reverse</button>
+  <div class="subtitle" v-if='mySubtitle'>My subtitle</div>
+  <p class='my_todo_list_paragraph' v-bind:title='myMessage'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Commodi debitis deleniti dicta doloribus error et facere magni maxime modi nemo, obcaecati possimus rem sed ut,
+    voluptatum! Aspernatur cumque provident sunt!
+  </p>
+  <div class='my_todo_list'>
+    <div class='my_todo_list_item' v-for='(todo,index) in todos' :key='todo.id'>{{todo.text}} - index: {{index}}</div>
   </div>
-  <div class="todo_items_container">
-    <div class="todo_item">
-     <div class="checkbox checked"></div>
-      <p class="item_title">jhb</p>
-      <div class="btn_container">
-        <div class="btn btn_edit">EDIT</div>
-        <div class="btn btn_delete">DELETE</div>
-      </div>
-    </div>
+  <button class='todo_list_button' v-on:click="addNewTask">add todo</button>
+  <button class='todo_list_button' v-on:click="searchMatch">search match</button>
+  <hr>
+  <div class='my_person_object'>
+    <div class='my_person_item' v-for='(key, value, index) in object'>{{index}}. {{value}} : {{key}}</div>
   </div>
+  <hr>
+  <button class='todo_list_button' v-on:click="chooseEven">choose even</button>
+  <div class='choose_even'>
+    <div class='even_item' v-for='n in evenNumbers'>{{n}}</div>
+  </div>
+  <input type="text" class='my_todo_list_input' v-model='inputMessage'>
+  <div class="input_message">{{inputMessage}}</div>
+  <p>Двойные фигурные скобки: {{ rawHtml }}</p>
+  <p>Директива v-html: <span style="color:red" v-html="rawHtml"></span></p>
+  <p>{{fullName}}</p>
+  <hr>
+  <p>meters:</p>
+  <input type="text" v-model='meters'>
+  <p>kilometers:</p>
+  <input type="text" v-model='kilometers'>
+  <hr>
+  <div class="condition" v-if='ok'>
+    <h1>Title</h1>
+    <p>paragraph 1</p>
+    <p>paragraph 2</p>
+  </div>
+  <!--<input type="text"-->
+         <!--placeholder='Add new task'-->
+         <!--v-model = 'newTaskContent'-->
+         <!--v-on:keyup.enter = 'addNewOne'-->
+  <!--&gt;-->
+  <ul>
+    <!--<li-->
+      <!--is="my-todo"-->
+      <!--v-for="(task,index) in tasks"-->
+      <!--v-bind:key="task.id"-->
+      <!--v-bind:text ="task.text"-->
+      <!--v-on:remove = "tasks.splice(index,1)"-->
+    <!--&gt;</li>-->
+
+  </ul>
+
+
 </div>
