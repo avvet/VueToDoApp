@@ -1,5 +1,5 @@
 <template>
-  <div id="'app">
+  <div>
     <image-container></image-container>
     <todo-list></todo-list>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
   import ImageContainerComponent from "Components/image-container-component/ImageContainerComponent";
-  import todoList from "Components/todo-list-component/todoList.vue";
+  import todoList from "Components/todo-list-component/todoList";
 
   export default {
     data() {

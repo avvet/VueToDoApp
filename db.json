@@ -1,20 +1,24 @@
 {
-  "tasks": [
+  "todos-list": [
     {
-      "name": "task 1",
-      "completed": false
+      "id": 1,
+      "title": "buy oranges"
     },
     {
-      "name": "task 2",
-      "completed": false
+      "id": 2,
+      "title": "buy bread"
     },
     {
-      "name": "task 3",
-      "completed": false
+      "id": 3,
+      "title": "buy apples"
     },
     {
-      "name": "task 4",
-      "completed": false
+      "title": "buy melon",
+      "id": 4
+    },
+    {
+      "title": "buy milk",
+      "id": 6
     }
   ]
 }
