@@ -50,6 +50,7 @@ class HttpWrapperClass {
         console.log(err);
       })
   }
+
 }
 
 
