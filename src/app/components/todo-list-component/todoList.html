@@ -9,8 +9,9 @@
   <div v-else class="todo_items_container">
     <todo-item v-for="todo in todosArray"
                v-bind:singleTodo="todo"
-               v-on:deleteItem="deleteItemEvent"
-               v-on:editItem="editItemEvent"
+               v-on:deleteItemEvent="deleteItem"
+               v-on:editItemEvent="editItem"
     ></todo-item>
+
   </div>
 </div>

@@ -40,7 +40,26 @@ class HttpWrapperClass {
         console.log(error, 'error to post new item');
       })
   }
-
+  deleteTodoItem(id){
+    axios
+      .delete(BASE_URL + DIVIDER + TODO_PL + DIVIDER + id)
+      .then(resp => {
+        console.log(resp);
+      })
+      .catch(err => {
+        console.log(err, 'onDeleteError');
+      })
+  }
+  editTodoItem(itemData) {
+    axios
+      .patch(BASE_URL + DIVIDER + TODO_PL + DIVIDER + itemData.id, itemData)
+      .then(resp => {
+        console.log(resp);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 }
 
 

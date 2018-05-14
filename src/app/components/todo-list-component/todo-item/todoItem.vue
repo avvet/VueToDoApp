@@ -1,37 +1,75 @@
 <template>
-  <div class="todo_item">
-    <div class="checkbox checked"></div>
-    <p class="item_title">{{singleTodo.title}}</p>
-    <div class="btn_container">
-      <div @click="onEditItem(singleTodo.id)" class="btn btn_edit">EDIT</div>
-      <div @click="onDeleteItem(singleTodo.id)" class="btn btn_delete">DELETE</div>
+    <div class="todo_item">
+      <div v-if="isInputShown">
+        <input type="text" id="edit_input" v-model="tempValue" class="editable_input">
+        <div class="btn_container">
+          <div @click="onEditItem" class="btn btn_edit">OK</div>
+          <div @click="onEditItemToggle" class="btn btn_delete">CANCEL</div>
+        </div>
+      </div>
+
+      <div v-else>
+        <div class="checkbox checked"></div>
+        <p class="item_title">{{singleTodo.title}}</p>
+        <div class="btn_container">
+          <div @click="onEditItemToggle" class="btn btn_edit">EDIT</div>
+          <div @click="onDeleteItem" class="btn btn_delete">DELETE</div>
+        </div>
+      </div>
+
     </div>
-  </div>
 </template>
 
 <script>
   export default{
     data(){
       return {
+        tempValue: '',
+        isInputShown: false
       }
     },
     name: 'todoItem',
     props: [
       'singleTodo'
     ],
+    created(){
+      this.tempValue = this.singleTodo.title;
+    },
     methods: {
-      onEditItem(itemId) {
-        console.log(itemId);
+      onEditItem() {
+        let itemId = this.singleTodo.id;
+        let itemData = {
+          id: itemId,
+          title: this.tempValue
+        };
+        this.$emit('editItemEvent', itemData);
+        this.singleTodo.title = this.tempValue;
+        this.onEditItemToggle();
       },
-      onDeleteItem(itemId) {
-        this.$emit('deleteItem', itemId);
+      onDeleteItem() {
+        let itemId = this.singleTodo.id;
+        this.$emit('deleteItemEvent', itemId);
+      },
+      onEditItemToggle(){
+        this.isInputShown = !this.isInputShown;
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+
+  .editable_input{
+    width:250px;
+    background-color: #fff;
+    height: 50px;
+    border: none;
+    font-size: 16px;
+    padding-left: 10px;
+    color: dimgrey;
+  }
   .todo_item{
+    z-index: 1;
     float: left;
     width: 100%;
     border-radius:3px;

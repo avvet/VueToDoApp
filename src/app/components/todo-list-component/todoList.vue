@@ -38,11 +38,15 @@
           console.log('Input is empty!');
         }
       },
-      deleteItemEvent(itemId) {
+      deleteItem(itemId) {
         httpWrapper.deleteTodoItem(itemId);
         this.todosArray = this.todosArray.filter(todo => todo.id !== itemId);
       },
-      editItemEvent(itemId) {
+      editItem(itemData) {
+        console.log(itemData);
+        httpWrapper.editTodoItem(itemData);
+      },
+      addEditedItem(){
 
       }
     },
