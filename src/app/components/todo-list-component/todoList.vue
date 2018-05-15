@@ -6,52 +6,52 @@
   import {httpWrapper} from "../../http/http-wrapper";
   import todoItem from "./todo-item/todoItem";
 
-  export default{
+  export default {
     data(){
       return{
+        message:'hello',
         todosArray: [],
-        newItemModel: ''
+        myContent:''
       }
     },
     components:{
       'todo-item': todoItem
     },
-    created() {
+    created(){
       setTimeout(() => {
-        httpWrapper.getCompleteTodosList(todosList => {
-          this.fillTodoListWithDataFromServer(todosList);
-        });
-      }, 1000)
+        httpWrapper.getTodoListFromServer(todoList => {
+          this.todosArray = todoList;
+        })
+      },2000)
     },
     methods:{
-      fillTodoListWithDataFromServer(myTodos){
-        this.todosArray = myTodos;
-      },
-      onAddNewItem() {
-        let isInputNotEmpty = this.newItemModel.length > 0;
-        if(isInputNotEmpty) {
-          httpWrapper.addNewItem(this.newItemModel, newTodo => {
-            this.todosArray.push(newTodo);
-            this.newItemModel = '';
-          })
-        } else {
-          console.log('Input is empty!');
-        }
-      },
-      deleteItemEvent(itemId) {
-        httpWrapper.deleteTodoItem(itemId);
-        this.todosArray = this.todosArray.filter(todo => todo.id !== itemId);
-      },
-      editItemEvent(itemId) {
+     addNewItemToTodoList() {
+       let isInputNotEmpty = this.myContent.length > 0;
+       if (isInputNotEmpty) {
+         httpWrapper.postTodosfromServer(this.myContent, (newTodo) => {
+           this.todosArray.push(newTodo);
+           this.myContent = '';
 
+         })
+       } else {
+         console.log('input is empty');
+       }
+     },
+     onDeleteItem(myTodoId){
+       httpWrapper.deleteTodoItemFromServer(myTodoId);
+       this.todosArray = this.todosArray.filter(todo => todo.id !== myTodoId)
+     },
+      onEditItem(data){
+       console.log(data);
+        httpWrapper.editTodoItem(data);
       }
     },
     computed:{
-      isTodoListEmpty(){
+      whileArrayIsLoading(){
         return this.todosArray.length === 0;
       }
     }
-  }
 
+  }
 </script>
 

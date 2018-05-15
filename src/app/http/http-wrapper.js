@@ -4,54 +4,54 @@ const BASE_URL = 'http://localhost:3000';
 const DIVIDER = '/';
 const TODO_PL = 'todos-list';
 
-let usersArray = [];
-
-class HttpWrapperClass {
-  getTodoById(id) {
-    axios
-      .get(BASE_URL + DIVIDER + TODO_PL + DIVIDER + id)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-  getCompleteTodosList(callback) {
+class HttpWrapperClass{
+  getTodoListFromServer(callback){
     axios
       .get(BASE_URL + DIVIDER + TODO_PL)
-      .then(response => {
-        callback(response.data);
+      .then(resp => {
+        callback(resp.data)
       })
-      .catch(error => {
-        console.log(error, 'error to get todosList');
+      .catch(err => {
+        console.log(err,'get data from server error');
       })
   }
-  addNewItem(newItemTitle, callback){
-    let itemData = {
-      title: newItemTitle
+  postTodosfromServer(todoItem, callback){
+    let newTodoObject = {
+      title: todoItem
     };
     axios
-      .post(BASE_URL + DIVIDER + TODO_PL, itemData)
-      .then(response => {
-        callback(response.data);
+      .post(BASE_URL + DIVIDER + TODO_PL, newTodoObject)
+      .then(resp => {
+        callback(resp.data);
       })
-      .catch(error => {
-        console.log(error, 'error to post new item');
+      .catch(err => {
+        console.log(err, 'error to post new todo');
       })
   }
-  deleteTodoItem(todoId){
+  deleteTodoItemFromServer(id){
     axios
-      .delete(BASE_URL + DIVIDER + TODO_PL + DIVIDER + todoId)
-      .then(response => {
-        console.log(response);
+      .delete(BASE_URL + DIVIDER + TODO_PL + DIVIDER + id)
+      .then(resp => {
+        console.log(resp);
       })
       .catch(err => {
         console.log(err);
       })
   }
+  editTodoItem(data){
+    axios
+      .patch(BASE_URL + DIVIDER + TODO_PL + DIVIDER + data.id, data)
+      .then(resp => {
+        console.log(resp);
+      })
+      .catch(err => {
+        console.log(err, 'error on editing todo');
+      })
+  }
 
 }
+
+
 
 
 const httpWrapper = new HttpWrapperClass();

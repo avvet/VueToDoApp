@@ -2,11 +2,7 @@
   "todos-list": [
     {
       "id": 2,
-      "title": "buy bread"
-    },
-    {
-      "id": 3,
-      "title": "buy apples"
+      "title": "buy water"
     },
     {
       "title": "buy melon",
@@ -15,6 +11,10 @@
     {
       "title": "buy milk",
       "id": 6
+    },
+    {
+      "title": "buy water",
+      "id": 7
     }
   ]
 }

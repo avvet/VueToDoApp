@@ -1,16 +1,21 @@
 <div class="todo_list_container">
   <h1 class="main_title">todo list</h1>
   <div class="todo_header_container">
-    <input v-model="newItemModel" type="text" class="todo_input">
-    <button @click="onAddNewItem" class="todo_btn_add">add</button>
+    <input v-model="myContent" type="text" class="todo_input">
+    <button @click="addNewItemToTodoList" class="todo_btn_add">add</button>
     <div class="divider"></div>
   </div>
-  <h2 v-if="isTodoListEmpty">empty todos list</h2>
+  <div v-if="whileArrayIsLoading">
+    <h1 class="loading_title">Todo List is loading</h1>
+  </div>
   <div v-else class="todo_items_container">
-    <todo-item v-for="todo in todosArray"
-               v-bind:singleTodo="todo"
-               v-on:deleteItem="deleteItemEvent"
-               v-on:editItem="editItemEvent"
+    <todo-item v-for='todo in todosArray'
+               v-bind:singleTodoItem="todo"
+               v-on:deleteItemEvent="onDeleteItem"
+               v-on:editItemEvent="onEditItem"
+
     ></todo-item>
+
+    </div>
   </div>
 </div>
