@@ -1,21 +1,14 @@
-<div class="todo_list_container">
-  <h1 class="main_title">todo list</h1>
-  <div class="todo_header_container">
-    <input v-model="myContent" type="text" class="todo_input">
-    <button @click="addNewItemToTodoList" class="todo_btn_add">add</button>
-    <div class="divider"></div>
-  </div>
-  <div v-if="whileArrayIsLoading">
-    <h1 class="loading_title">Todo List is loading</h1>
-  </div>
-  <div v-else class="todo_items_container">
-    <todo-item v-for="todo in todosArray" :key="todo.id"
-               v-bind:singleTodoItem="todo"
-               v-on:deleteItemEvent="onDeleteItem"
-               v-on:editItemEvent="onEditItem"
-
-    ></todo-item>
-
+<div class="post_list_container">
+  <header class="header">
+    <div class="wrapper">
+      <h1>News</h1>
     </div>
+  </header>
+  <div class="post_item_container">
+    <todo-item v-for="post in postsArray"
+               :key="post.id"
+               v-bind:singlePost="post"
+               class="post_item"
+    ></todo-item>
   </div>
 </div>

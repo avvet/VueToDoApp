@@ -1,16 +1,40 @@
 {
-  "todos-list": [
+  "posts": [
     {
-      "title": "buy melon",
-      "id": 4
+      "id": 1,
+      "pic": "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "25 January, 2017",
+      "title": "The Latest Article1",
+      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur. Has altera possim viderer ne, facete delenit ne sit, diam aliquam iracundia."
     },
     {
-      "title": "buy milk",
-      "id": 6
+      "id": 2,
+      "pic": "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "28 June, 2017",
+      "title": "The Latest Article2",
+      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur."
     },
     {
-      "title": "buy water",
-      "id": 7
+      "id": 3,
+      "pic": "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "29 January, 2018",
+      "title": "The Latest Article3",
+      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur. Has altera possim viderer ne, facete delenit ne sit, diam aliquam iracundia."
+    },
+    {
+      "id": 4,
+      "pic": "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "22 July, 2017",
+      "title": "The Latest Article4",
+      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur. Has altera possim viderer ne, facete delenit ne sit, diam aliquam iracundia."
+    },
+    {
+      "id": 5,
+      "pic": "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "24 July, 2016",
+      "title": "The Latest Article5",
+      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur. Has altera possim viderer ne, facete delenit ne sit, diam aliquam iracundia."
     }
+
   ]
 }
