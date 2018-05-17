@@ -4,18 +4,20 @@ const BASE_URL = 'http://localhost:3000';
 const DIVIDER = '/';
 const TODO_PL = 'todos-list';
 
-class HttpWrapperClass{
-  getTodoListFromServer(callback){
+
+class HttpWrapperClass {
+  getTodoListFromServer(callback) {
     axios
       .get(BASE_URL + DIVIDER + TODO_PL)
       .then(resp => {
         callback(resp.data)
       })
       .catch(err => {
-        console.log(err,'get data from server error');
+        console.log(err, 'get data from server error');
       })
   }
-  postTodosfromServer(todoItem, callback){
+
+  postTodosfromServer(todoItem, callback) {
     let newTodoObject = {
       title: todoItem
     };
@@ -28,7 +30,8 @@ class HttpWrapperClass{
         console.log(err, 'error to post new todo');
       })
   }
-  deleteTodoItemFromServer(id){
+
+  deleteTodoItemFromServer(id) {
     axios
       .delete(BASE_URL + DIVIDER + TODO_PL + DIVIDER + id)
       .then(resp => {
@@ -38,7 +41,8 @@ class HttpWrapperClass{
         console.log(err);
       })
   }
-  editTodoItem(data){
+
+  editTodoItem(data) {
     axios
       .patch(BASE_URL + DIVIDER + TODO_PL + DIVIDER + data.id, data)
       .then(resp => {
@@ -48,11 +52,8 @@ class HttpWrapperClass{
         console.log(err, 'error on editing todo');
       })
   }
-
 }
 
-
-
-
 const httpWrapper = new HttpWrapperClass();
+
 export {httpWrapper}
