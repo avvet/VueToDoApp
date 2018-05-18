@@ -4,9 +4,10 @@
         <img :src="singlePost.pic" />
       </div>
       <div class="content_wrapper">
-        <div class="post_date">{{singlePost.date}}</div>
-        <div class="post_title">{{singlePost.title}}</div>
-        <div class="post_text">{{singlePost.text}}</div>
+        <div class="post post_date">{{singlePost.date}}</div>
+        <div class="post post_title">{{singlePost.title}}</div>
+        <div class="post post_text">{{singlePost.text}}</div>
+        <div class="post btn_learn_more">learn more</div>
       </div>
     </div>
 </template>
@@ -26,8 +27,81 @@
 </script>
 
 <style lang="scss" scoped>
-  .post_pic img{
-    width: 100%;
-    background-size: cover;
+  .post_pic {
+    width: 100%; /* Ширина области */
+    height: 380px; /* Высота области */
+    margin: 0; /* Обнуляем отступы */
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
+  .content_wrapper{
+    height: 310px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+      .post_date{
+        color: #374e89;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 30px;
+      }
+      .post_title{
+        margin-top: 15px;
+        font-size: 22px;
+        font-weight: bold;
+        font-family: "Playfair Display";
+        letter-spacing: 2px;
+        background-image: -moz-linear-gradient(0deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
+        background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(233,99,82,1)), color-stop(100%, rgba(246,161,59,1)));
+        background-image: -webkit-linear-gradient(0deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
+        background-image: -o-linear-gradient(0deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
+        background-image: -ms-linear-gradient(0deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
+        background-image: linear-gradient(90deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+        cursor: pointer;
+
+      }
+      .post_text{
+        margin-top: 30px;
+        color: #909090;
+        font-size: 16px;
+        height: 65px;
+      }
+      .btn_learn_more{
+        color:#171717;
+        width: 99px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+        margin-top: 40px;
+        position: relative;
+        padding: 0 0 10px 0;
+        cursor: pointer;
+        &:hover{
+          color: #5c5c5c;
+        }
+        &:before{
+          content: '';
+          border-bottom: 1px solid #e96352;
+          padding: 0 10px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          transition: 0.3s;
+        }
+        &:hover:before{
+          width :100%;
+          padding: 0;
+        }
+      }
+  }
+
+
 </style>

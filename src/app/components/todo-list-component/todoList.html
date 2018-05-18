@@ -4,11 +4,13 @@
       <h1>News</h1>
     </div>
   </header>
-  <div class="post_item_container">
-    <todo-item v-for="post in postsArray"
-               :key="post.id"
-               v-bind:singlePost="post"
-               class="post_item"
-    ></todo-item>
+  <div class="wrapper">
+    <div class="post_item_container">
+      <todo-item v-for="post in postsArray"
+                 :key="post.id"
+                 v-bind:singlePost="post"
+                 class="post_item"
+      ></todo-item>
+    </div>
   </div>
 </div>
