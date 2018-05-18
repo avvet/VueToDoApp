@@ -1,7 +1,9 @@
 <template>
     <div>
       <div class="post_pic">
-        <img :src="singlePost.pic" />
+        <div class="figure">
+          <img :src="singlePost.pic" />
+        </div>
       </div>
       <div class="content_wrapper">
         <div class="post post_date">{{singlePost.date}}</div>
@@ -28,14 +30,28 @@
 
 <style lang="scss" scoped>
   .post_pic {
-    width: 100%; /* Ширина области */
-    height: 380px; /* Высота области */
-    margin: 0; /* Обнуляем отступы */
-    img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .figure{
+      width: 100%; /* Ширина области */
+      height: 380px;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      overflow: hidden;
+      img {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+      }
     }
+  }
+  .post_pic:hover img{
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
   }
   .content_wrapper{
     height: 310px;
