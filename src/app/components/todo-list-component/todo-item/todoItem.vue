@@ -29,6 +29,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../../../../assets/styles/variables";
   .post_pic {
     .figure{
       width: 100%; /* Ширина области */
@@ -55,7 +56,7 @@
   }
   .content_wrapper{
     height: 310px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $main_font;
     display: flex;
     flex-direction: column;
       .post_date{
@@ -77,7 +78,6 @@
         background-image: -ms-linear-gradient(0deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
         background-image: linear-gradient(90deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
         -webkit-background-clip: text;
-        background-clip: text;
         color:transparent;
         cursor: pointer;
 
