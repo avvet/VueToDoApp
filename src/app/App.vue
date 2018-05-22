@@ -2,12 +2,14 @@
   <div>
     <image-container></image-container>
     <todo-list></todo-list>
+
   </div>
 </template>
 
 <script>
   import ImageContainerComponent from "Components/image-container-component/ImageContainerComponent";
   import todoList from "Components/todo-list-component/todoList";
+
 
 
   export default {
@@ -17,7 +19,8 @@
     name: 'App',
     components: {
       'image-container': ImageContainerComponent,
-      'todo-list':todoList
+      'todo-list':todoList,
+
     }
   }
 </script>

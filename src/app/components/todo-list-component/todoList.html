@@ -6,11 +6,19 @@
   </header>
   <div class="wrapper">
     <div class="post_item_container">
-      <todo-item v-for="post in postsArray"
+      <todo-item v-for="post in visiblePosts"
                  :key="post.id"
                  v-bind:singlePost="post"
+                 v-bind:visiblePosts="visiblePosts"
+                 v-bind:currentPage="currentPage"
                  class="post_item"
       ></todo-item>
+      <pagination v-bind:postsArray="postsArray"
+                  v-on:page:update="updatePage"
+                  v-bind:currentPage="currentPage"
+                  v-bind:pageSize="pageSize"
+                  class="pagination"
+      ></pagination>
     </div>
   </div>
 </div>

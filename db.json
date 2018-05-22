@@ -34,6 +34,20 @@
       "date": "24 July, 2016",
       "title": "The Latest Article5",
       "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur. Has altera possim viderer ne, facete delenit ne sit, diam aliquam iracundia."
+    },
+    {
+      "id": 6,
+      "pic": "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "25 January, 2017",
+      "title": "The Latest Article 1",
+      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur. Has altera possim viderer ne, facete delenit ne sit, diam aliquam iracundia."
+    },
+    {
+      "id": 7,
+      "pic": "http://kb4images.com/images/sad-picture/36711809-sad-picture.jpg",
+      "date": "28 June, 2017",
+      "title": "The Latest Article 2",
+      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur."
     }
 
   ]
