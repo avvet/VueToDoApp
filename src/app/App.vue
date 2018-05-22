@@ -1,9 +1,8 @@
 <template>
-  <div id="app">
+  <div>
     <router-view></router-view>
     <!--<image-container></image-container>-->
     <!--<todo-list></todo-list>-->
-
   </div>
 </template>
 
@@ -11,6 +10,7 @@
   import ImageContainerComponent from "Components/image-container-component/ImageContainerComponent";
   import todoList from "Components/todo-list-component/todoList";
   import About from "Components/about-component/About";
+  import Post from "Components/post-component/Post";
 
 
   export default {
@@ -21,7 +21,8 @@
     components: {
       'image-container': ImageContainerComponent,
       'todo-list':todoList,
-      'about': About
+      'about': About,
+      'post': Post
     }
   }
 
