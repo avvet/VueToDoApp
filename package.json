@@ -33,6 +33,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "reset-css": "^2.2.1",
-    "typeface-open-sans": "0.0.54"
+    "typeface-open-sans": "0.0.54",
+    "vue-router": "^3.0.1"
   }
 }

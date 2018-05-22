@@ -25,11 +25,31 @@ body{
   width: 100%;
   background: url("../../../assets/img/pic.jpg");
   height: 380px;
+  .menu_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo{
+
+      color: white;
+      font-size: 32px;
+
+    }
+    nav{
+
+      a{
+        text-decoration: none;
+        color: white;
+        padding: 20px;
+      }
+    }
+  }
   h1{
     text-align: center;
     line-height: 380px;
     color: white;
   }
+
 }
 .post_item_container{
   display: flex;
