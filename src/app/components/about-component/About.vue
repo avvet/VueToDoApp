@@ -33,6 +33,7 @@
       .logo{
         color: white;
         font-size: 32px;
+        font-family: 'Open Sans', sans-serif;
       }
       nav{
 
@@ -43,6 +44,7 @@
           text-transform: uppercase;
           font-size: 14px;
           font-weight: bold;
+          font-family: 'Open Sans', sans-serif;
         }
       }
     }

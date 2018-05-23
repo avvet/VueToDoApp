@@ -9,7 +9,9 @@
         <div class="post post_date">{{singlePost.date}}</div>
         <div class="post post_title">{{singlePost.title}}</div>
         <div class="post post_text">{{singlePost.text}}</div>
-        <div class="post btn_learn_more">learn more</div>
+        <router-link :to="{name:'post', params:{id:index}}" style="text-decoration: none">
+          <div class="post btn_learn_more">learn more</div>
+        </router-link>
       </div>
     </div>
 </template>
@@ -23,7 +25,8 @@
     },
     name:'todoItem',
     props:[
-      'singlePost'
+      'singlePost',
+      'index'
     ]
   }
 </script>
@@ -55,7 +58,7 @@
     transform: scale(1.3);
   }
   .content_wrapper{
-    height: 310px;
+    height: 340px;
     font-family: $main_font;
     display: flex;
     flex-direction: column;
@@ -69,6 +72,7 @@
         margin-top: 15px;
         font-size: 22px;
         font-weight: bold;
+        height: 60px;
         font-family: "Playfair Display";
         letter-spacing: 2px;
         background-image: -moz-linear-gradient(0deg, rgba(233,99,82,1) 0%, rgba(246,161,59,1) 100%);
@@ -118,6 +122,4 @@
         }
       }
   }
-
-
 </style>

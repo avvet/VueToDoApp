@@ -15,7 +15,6 @@
         currentPage: 0,
         pageSize:6,
         visiblePosts:[],
-
       }
     },
     components:{
