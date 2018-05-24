@@ -36,7 +36,6 @@
         font-family: 'Open Sans', sans-serif;
       }
       nav{
-
         a{
           text-decoration: none;
           color: white;
@@ -45,6 +44,9 @@
           font-size: 14px;
           font-weight: bold;
           font-family: 'Open Sans', sans-serif;
+        }
+        .router-link-active {
+          color: darkgrey;
         }
       }
     }

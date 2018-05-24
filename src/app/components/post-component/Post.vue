@@ -39,9 +39,9 @@
           </div>
           <div class="content_wrapper">
             <div class="post post_date">{{post.date}}</div>
-            <router-link :to="{name:'post', params:{id:index}}" style="text-decoration: none">
+            <!--<router-link :to="{name:'post', params:{id:index}}" style="text-decoration: none">-->
               <div class="post post_title">{{post.title}}</div>
-            </router-link>
+            <!--</router-link>-->
           </div>
         </div>
       </div>
@@ -59,10 +59,10 @@
       return{
         postsArray: [],
         post:'',
-        relatedPosts: [],
         currentPage: 0,
         pageSize:3,
         visiblePosts:[],
+        postId:''
       }
     },
     components:{
@@ -71,52 +71,28 @@
     created(){
       httpWrapper.getPostsFromArray(posts => {
         this.postsArray = posts;
-        this.updateVisiblePosts();
+        // this.updateVisiblePosts();
 
-        let postId = this.$route.params.id;
-        this.post = this.postsArray[postId];
+        this.postId = this.$route.params.id;
+        this.post = this.postsArray[this.postId];
 
-
-        let newArr=[];
-        for(let i=0; i < this.postsArray.length; i++){
-          newArr.push(this.postsArray[i].title);
-        }
-
-        let targetArr = [];
-        for(let j=0; j< newArr.length; j++){
-          if(newArr[j].indexOf('Liquor') !== -1){
-            targetArr.push(newArr[j]);
-          }
-        }
-        console.log(newArr);
-        console.log(targetArr);
-        console.log(this.postsArray);
-
-        for(let i =0; i< this.postsArray.length; i++){
-          for(let j=0; j< newArr.length; j++){
-            if(this.postsArray[i].title === targetArr[j] && this.postsArray.length < 4){
-              this.relatedPosts.push(this.postsArray[i]);
-              alert(this.relatedPosts);
-            }
-          }
-        }
       })
-    },
-    beforeMount(){
-      this.updateVisiblePosts();
-    },
-    methods:{
-      updatePage(pageNumber){
-        this.currentPage = pageNumber;
-        this.updateVisiblePosts();
-      },
-      updateVisiblePosts(){
-        this.visiblePosts = this.postsArray.slice(this.currentPage * this.pageSize, (this.currentPage * this.pageSize) + this.pageSize);
-        if(this.visiblePosts.length === 0 && this.currentPage > 0){
-          this.updatePage(this.currentPage -1);
-        }
-      }
     }
+    // beforeMount(){
+    //   this.updateVisiblePosts();
+    // },
+    // methods:{
+    //   updatePage(pageNumber){
+    //     this.currentPage = pageNumber;
+    //     this.updateVisiblePosts();
+    //   },
+    //   updateVisiblePosts(){
+    //     this.visiblePosts = this.postsArray.slice(this.currentPage * this.pageSize, (this.currentPage * this.pageSize) + this.pageSize);
+    //     if(this.visiblePosts.length === 0 && this.currentPage > 0){
+    //       this.updatePage(this.currentPage -1);
+    //     }
+    //   }
+    // }
   }
 </script>
 

@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": 0,
       "pic": "https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "date": "25 January, 2017",
       "title": "A New Generation of Liquor Makers",
@@ -10,7 +10,7 @@
       "pic2": "https://images.pexels.com/photos/884977/pexels-photo-884977.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
     {
-      "id": 2,
+      "id": 1,
       "pic": "http://kb4images.com/images/sad-picture/36711809-sad-picture.jpg",
       "date": "28 June, 2017",
       "title": "Liquor Makers",
@@ -19,7 +19,7 @@
       "pic2": "https://images.pexels.com/photos/296879/pexels-photo-296879.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
     {
-      "id": 3,
+      "id": 2,
       "pic": "http://i.dailymail.co.uk/i/pix/2018/01/18/13/484228A300000578-5284049-An_aerial_picture_taken_by_Jassen_Todorov_of_Lake_Powell_in_Utah-a-118_1516282735397.jpg",
       "date": "29 January, 2018",
       "title": "Wine Makers",
@@ -28,7 +28,7 @@
       "pic2": "https://images.pexels.com/photos/875862/pexels-photo-875862.png?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
     {
-      "id": 4,
+      "id": 3,
       "pic": "https://img.etimg.com/thumb/msid-59337310,width-643,imgsize-157812,resizemode-4/love-taking-pictures-heres-some-good-news-for-you.jpg",
       "date": "22 July, 2017",
       "title": " The Best Wine Makers",
@@ -37,7 +37,7 @@
       "pic2": "https://images.pexels.com/photos/449461/pexels-photo-449461.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
     {
-      "id": 5,
+      "id": 4,
       "pic": "https://www.artistsnetwork.com/wp-content/uploads/2018/02/watercolor-pictures-mackenzie.jpg",
       "date": "24 July, 2016",
       "title": "Liquor Makers",
@@ -46,7 +46,7 @@
       "pic2": "https://images.pexels.com/photos/532389/pexels-photo-532389.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
     {
-      "id": 6,
+      "id": 5,
       "pic": "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "date": "25 January, 2017",
       "title": "A New Generation of Liquor Makers",
@@ -55,16 +55,16 @@
       "pic2": "https://images.pexels.com/photos/382177/pexels-photo-382177.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
     {
-      "id": 7,
+      "id": 6,
       "pic": "http://kb4images.com/images/sad-picture/36711809-sad-picture.jpg",
       "date": "28 June, 2017",
       "title": "Liquor Makers",
-      "text": "Lorem ipsum dolor sit amet, vel in eius errem neglegentur.",
+      "text": "Sveta post no 7",
       "textSingle": "Lorem ipsum dolor sit amet, pro ut mutat mundi deserunt, per verear scripserit delicatissimi cu. Offendit scaevola cu ius, eos stet elitr sapientem eu.  Lorem ipsum dolor sit amet, pro ut mutat mundi deserunt pro ut mutat mundi deseruntLorem ipsum dolor sit amet, pro ut mutat mundi deserunt, per verear scripserit delicatissimi cu. Offendit scaevola cu ius, eos stet elitr sapientem eu.  Lorem ipsum dolor sit amet, pro ut mutat mundi deserunt pro ut mutat mundi deseruntLorem ipsum dolor sit amet, pro ut mutat mundi deserunt, per verear scripserit delicatissimi cu. Offendit scaevola cu ius, eos stet elitr sapientem eu.  Lorem ipsum dolor sit amet, pro ut mutat mundi deserunt pro ut mutat mundi deseruntLorem ipsum dolor sit amet, pro ut mutat mundi deserunt, per verear scripserit delicatissimi cu. Offendit scaevola cu ius, eos stet elitr sapientem eu.  Lorem ipsum dolor sit amet, pro ut mutat mundi deserunt pro ut mutat mundi deserunt",
       "pic2": "https://images.pexels.com/photos/191034/pexels-photo-191034.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
     },
     {
-      "id": 8,
+      "id": 7,
       "pic": "https://www.artistsnetwork.com/wp-content/uploads/2018/02/watercolor-pictures-mackenzie.jpg",
       "date": "24 July, 2016",
       "title": "Wine Makers",

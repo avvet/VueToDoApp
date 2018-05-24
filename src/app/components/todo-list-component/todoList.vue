@@ -5,7 +5,8 @@
 <script>
   import {httpWrapper} from "../../http/http-wrapper";
   import todoItem from "./todo-item/todoItem";
-  import pagination from "./pagination/pagination"
+  import pagination from "./pagination/pagination";
+
 
   export default {
     data(){
@@ -40,6 +41,7 @@
         if(this.visiblePosts.length === 0 && this.currentPage > 0){
           this.updatePage(this.currentPage -1);
         }
+        console.log(this.visiblePosts);
       }
     }
   }

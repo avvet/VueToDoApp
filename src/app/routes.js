@@ -19,6 +19,7 @@ export default [
   {
     path: '/post/:id',
     name: 'post',
+    props:true,
     component: Post
   }
 ]

@@ -15,7 +15,9 @@
 
   export default {
     data() {
-      return {}
+      return {
+
+      }
     },
     name: 'App',
     components: {
@@ -37,4 +39,6 @@
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   }
+
+
 </style>
