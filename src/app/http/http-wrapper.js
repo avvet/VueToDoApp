@@ -6,9 +6,15 @@ const TODO_PL = 'posts';
 
 
 class HttpWrapperClass {
-  getPostsFromArray(callback){
+  getPostsFromArray(callback,page){
+    let options={
+      params:{
+        page: page,
+        per_page: this.perPage
+      }
+    };
     axios
-      .get(BASE_URL + DIVIDER + TODO_PL)
+      .get(BASE_URL + DIVIDER + TODO_PL, options)
       .then(resp => {
         console.log(resp);
         callback(resp.data);

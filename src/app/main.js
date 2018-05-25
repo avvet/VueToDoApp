@@ -4,8 +4,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
 import Routes from './routes'
+// import Paginate from 'vuejs-paginate'
+
+// Vue.component('paginate', Paginate);
 
 Vue.use(VueRouter);
+// Vue.use(Paginate);
 
 
 const router =  new VueRouter({

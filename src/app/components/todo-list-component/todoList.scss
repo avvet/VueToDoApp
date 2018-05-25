@@ -74,10 +74,27 @@ body{
     }
   }
 }
-.pagination{
-  float: left;
+.pagin{
+  display: flex;
   width: 100%;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 60px;
+  justify-content: space-between;
+  margin: 0 auto 60px;
+
+}
+//.pagination{
+//  float: left;
+//  width: 100%;
+//  text-align: center;
+//  margin-top: 30px;
+//  margin-bottom: 60px;
+//}
+.pagination {
+  list-style-type: none;
+}
+.page-item {
+  display: inline-block;
+}
+.active {
+  background-color: #4AAE9B;
+  color: #ffffff;
 }
