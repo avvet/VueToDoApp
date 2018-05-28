@@ -13,41 +13,24 @@
   </header>
   <div class="wrapper">
     <div class="post_item_container">
-      <!--<todo-item v-for="(post,index) in visiblePosts"-->
-                 <!--:key="post.id"-->
-                 <!--v-bind:singlePost="post"-->
-                 <!--v-bind:visiblePosts="visiblePosts"-->
-                 <!--v-bind:currentPage="currentPage"-->
-                 <!--v-bind:index="index"-->
-                 <!--class="post_item"-->
-      <!--&gt;</todo-item>-->
       <todo-item v-for="(post,index) in postsArray"
                  :key="post.id"
                  v-bind:singlePost="post"
-                 v-bind:currentPage="currentPage"
+                 v-bind:current="currentPage"
                  v-bind:index="index"
                  class="post_item"
       ></todo-item>
       <pagin
-        class="pagin"
+              v-bind:current="currentPage"
+              v-bind:totalPages="totalPages"
+              v-bind:nextPage="nextPage"
+              v-bind:prevPage="prevPage"
+              v-bind:noPrevPage="noPrevPage"
+              v-bind:noNextPage="noNextPage"
+              v-on:prevPageEvent = "onPrevPageEvent"
+              v-on:nextPageEvent = "onNextPageEvent"
+             class="pagin"
       ></pagin>
-      <!--<paginate-->
-        <!--:page-count="20"-->
-        <!--:page-range="3"-->
-        <!--:margin-pages="2"-->
-        <!--:click-handler="clickCallback"-->
-        <!--:prev-text="'Prev'"-->
-        <!--:next-text="'Next'"-->
-        <!--:container-class="'pagination'"-->
-        <!--:page-class="'page-item'">-->
-      <!--</paginate>-->
-
-      <!--<pagination v-bind:postsArray="postsArray"-->
-                  <!--v-on:page:update="updatePage"-->
-                  <!--v-bind:currentPage="currentPage"-->
-                  <!--v-bind:pageSize="pageSize"-->
-                  <!--class="pagination"-->
-      <!--&gt;</pagination>-->
     </div>
   </div>
 </div>

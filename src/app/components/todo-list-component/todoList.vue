@@ -5,52 +5,72 @@
 <script>
   import {httpWrapper} from "../../http/http-wrapper";
   import todoItem from "./todo-item/todoItem";
-  // import pagination from "./pagination/pagination";
   import Pagin from "../pagin-component/Pagin";
+  import axios from "axios/index";
 
   export default {
     data(){
       return{
         message:'hello',
         postsArray: [],
-        // currentPage: 0,
         pageSize:6,
-        visiblePosts:[],
-
         totalPosts:0,
-        perPage:6,
-        currentPage:1
+        perPage: 6,
+        currentPage:1,
+        page:''
       }
     },
     components:{
       'todo-item': todoItem,
       'pagin': Pagin
-      // 'pagination': pagination
-    },
-    beforeMount(){
-      // this.updateVisiblePosts();
     },
     created(){
-      httpWrapper.getPostsFromArray(posts => {
-        this.postsArray = posts;
-        // this.updateVisiblePosts();
-      },this.currentPage)
+      this.fetchPosts(this.currentPage);
     },
     methods: {
-      // updatePage(pageNumber) {
-      //   this.currentPage = pageNumber;
-      //   this.updateVisiblePosts();
-      // },
-      // updateVisiblePosts() {
-      //   this.visiblePosts = this.postsArray.slice(this.currentPage * this.pageSize, (this.currentPage * this.pageSize) + this.pageSize);
-      //   if (this.visiblePosts.length === 0 && this.currentPage > 0) {
-      //     this.updatePage(this.currentPage - 1);
-      //   }
-      //   console.log(this.visiblePosts);
-      // },
-      // clickCallback(pageNum) {
-      //   console.log(pageNum);
-      // }
+      fetchPosts(page){
+        this.currentPage = page;
+        let options = {
+          params:{
+            '_page':page,
+            '_limit': this.perPage
+          }
+        };
+        console.log(options, 'OPTIONS');
+        axios
+          .get('http://localhost:3000/posts', options)
+          .then(resp => {
+            console.log(resp);
+            this.postsArray = resp.data;
+            this.totalPosts = parseInt(resp.headers['x-total-count']);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+      },
+      onPrevPageEvent() {
+        this.fetchPosts(this.prevPage);
+      },
+      onNextPageEvent() {
+        this.fetchPosts(this.nextPage)
+      }
+    },
+    computed: {
+      totalPages(){
+        return Math.ceil(this.totalPosts/this.perPage);
+      },
+      nextPage(){
+        return this.currentPage + 1;
+      },
+      prevPage(){
+        return this.currentPage - 1;
+      },
+      noNextPage() {
+        return this.nextPage > this.totalPages;
+      },
+      noPrevPage() {
+        return this.prevPage < 1;
+      }
     }
   }
 </script>

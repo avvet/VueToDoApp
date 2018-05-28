@@ -14,7 +14,7 @@ export default [
   },
   {
     path: '/',
-    component: ImageContainerComponent
+    component: todoList
   },
   {
     path: '/post/:id',

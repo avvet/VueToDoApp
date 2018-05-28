@@ -31,7 +31,7 @@
       <div class="divider"></div>
       <div class="bottom_title">You May also Like</div>
       <div class="post_item_container">
-        <div v-for="(post,index) in visiblePosts" class="post_item">
+        <div v-for="(post,index) in postsArray" class="post_item">
           <div class="post_pic">
             <div class="figure">
               <img :src="post.pic" />

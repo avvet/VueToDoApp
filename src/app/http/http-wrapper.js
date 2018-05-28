@@ -7,10 +7,10 @@ const TODO_PL = 'posts';
 
 class HttpWrapperClass {
   getPostsFromArray(callback,page){
-    let options={
+    let options = {
       params:{
         page: page,
-        per_page: this.perPage
+        per_page: this.perPage,
       }
     };
     axios
