@@ -22,16 +22,14 @@
       ></todo-item>
       <pagin
               v-bind:current="currentPage"
-              v-bind:pagesArray="pagesArray"
-              v-bind:totalPages="totalPages"
-              v-bind:pageRange ="pageRange"
               v-bind:nextPage="nextPage"
               v-bind:prevPage="prevPage"
               v-bind:noPrevPage="noPrevPage"
               v-bind:noNextPage="noNextPage"
-              v-bind:rangeStart="rangeStart"
-              v-bind:rangeEnd="rangeEnd"
+              v-bind:totalPages="totalPages"
+
               v-bind:pages="pages"
+
               v-on:prevPageEvent = "onPrevPageEvent"
               v-on:nextPageEvent = "onNextPageEvent"
               v-on:fetchPosts = "fetchPosts"

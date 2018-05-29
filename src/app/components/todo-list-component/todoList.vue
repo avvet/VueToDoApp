@@ -37,11 +37,9 @@
             '_limit': this.perPage
           }
         };
-        console.log(options, 'OPTIONS');
         axios
           .get('http://localhost:3000/posts', options)
           .then(resp => {
-            console.log(resp);
             this.postsArray = resp.data;
             this.totalPosts = parseInt(resp.headers['x-total-count']);
           })
@@ -81,6 +79,7 @@
         return (end < this.totalPages)? end : this.totalPages;
       },
       pages(){
+        this.pagesArray = [];
         for (let i = this.rangeStart; i <= this.rangeEnd; i++){
           this.pagesArray.push(i);
         }

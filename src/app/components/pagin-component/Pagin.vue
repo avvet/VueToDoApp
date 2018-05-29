@@ -5,8 +5,8 @@
       </div>
       <div class="pagin_mid">
         <!--<span>{{current}} from {{totalPages}}</span>-->
-          <div v-for="onePage in pagesArray" class="one_page">
-            <p @click="fetchPosts(onePage)">{{onePage}}</p>
+          <div v-for="onePage in pages" class="one_page">
+            <p @click="fetchPosts(onePage)" v-bind:class="{active_page: onePage === current}">{{onePage}}</p>
           </div>
 
       </div>
@@ -21,9 +21,7 @@
 <script>
   export default {
     data(){
-      return{
-        onePage:null
-      }
+      return{}
     },
     name:'pagin',
     props:{
@@ -33,7 +31,6 @@
       nextPage: this.nextPage,
       noPrevPage: this.noPrevPage,
       noNextPage: this.noNextPage,
-      pagesArray:this.pagesArray,
       pages:this.pages
     },
     methods:{
@@ -50,10 +47,7 @@
         this.$emit('nextPageEvent')
       },
       fetchPosts(page){
-
         this.$emit('fetchPosts',page);
-
-        // console.log(this.pagesArray,'ARRAY');
       }
     }
   }
@@ -84,12 +78,15 @@
       width: 160px;
       line-height: 46px;
       border-radius: 25px;
-      transition: all .2s ease-in-out;
       margin: 0;
+      transition: font-size .2s ease-in-out;
     }
   }
   .arrows:hover p{
     color: white;
+  }
+  .active_page {
+    font-size: 22px;
   }
   .disabled {
     opacity: 0;
