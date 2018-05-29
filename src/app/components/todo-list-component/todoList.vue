@@ -11,13 +11,14 @@
   export default {
     data(){
       return{
-        message:'hello',
         postsArray: [],
         pageSize:6,
         totalPosts:0,
         perPage: 6,
         currentPage:1,
-        page:''
+        page:'',
+        pageRange:2,
+        pagesArray:[]
       }
     },
     components:{
@@ -66,10 +67,24 @@
         return this.currentPage - 1;
       },
       noNextPage() {
-        return this.nextPage > this.totalPages;
+        return this.nextPage <= this.totalPages;
       },
       noPrevPage() {
-        return this.prevPage < 1;
+        return this.prevPage > 0;
+      },
+      rangeStart(){
+        let start = this.currentPage - this.pageRange;
+        return (start > 0)? start : 1
+      },
+      rangeEnd(){
+        let end = this.currentPage + this.pageRange;
+        return (end < this.totalPages)? end : this.totalPages;
+      },
+      pages(){
+        for (let i = this.rangeStart; i <= this.rangeEnd; i++){
+          this.pagesArray.push(i);
+        }
+        return this.pagesArray;
       }
     }
   }
