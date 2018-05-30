@@ -57,7 +57,10 @@
   export default {
     data(){
       return{
-        postsArray: [],
+        totalPosts: {
+          type: Number,
+          default: 0
+        },
         newPostsArray:[],
         post:'',
         currentPage: 0,
@@ -73,23 +76,32 @@
         return Math.random() * (max - min) + min;
       },
       relatedPostsCreate(){
-        let rand = Math.floor(Math.random() * this.postsArray.length);
-
-        while (this.newPostsArray.length < 3 && this.newPostsArray.indexOf(this.postsArray[rand]) === -1) {
-          this.newPostsArray.push(this.postsArray[rand]);
+        let relatedPostsNumbers = [];
+        this.totalPosts = this.$route.params.totalPosts;
+        while (relatedPostsNumbers.length < 3) {
+          let randomNumberRange = Math.floor(Math.random() * this.totalPosts);
+          let isPostExistsInNewPostsArray = relatedPostsNumbers.indexOf(randomNumberRange) === -1;
+          if(isPostExistsInNewPostsArray) {
+            relatedPostsNumbers.push(randomNumberRange);
+          }
         }
-        return this.newPostsArray;
+        relatedPostsNumbers.map(postId => {
+          httpWrapper.getPostById(postId, (post) => {
+            this.newPostsArray.push(post);
+          })
+        });
+        console.log(this.totalPosts,'POSTS');
+        console.warn(this.newPostsArray, 'NEW POSTS', relatedPostsNumbers);
+        // return this.newPostsArray;
       }
     },
 
     created(){
-      httpWrapper.getPostsFromArray(posts => {
-        this.postsArray = posts;
-        this.postId = this.$route.params.id;
-        this.post = this.postsArray[this.postId];
-
-        this.relatedPostsCreate();
-      })
+      this.postId = this.$route.params.id;
+      httpWrapper.getPostById(this.postId,(post) => {
+        this.post = post;
+      });
+      this.relatedPostsCreate();
     }
 
   }

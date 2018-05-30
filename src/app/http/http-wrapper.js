@@ -20,6 +20,17 @@ class HttpWrapperClass {
         callback(resp.data);
       })
   }
+
+  getPostById(postId, callback) {
+    axios
+      .get('http://localhost:3000/posts' + DIVIDER + postId)
+      .then(resp => {
+        callback(resp.data)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 }
 
 const httpWrapper = new HttpWrapperClass();

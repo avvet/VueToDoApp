@@ -9,7 +9,7 @@
         <div class="post post_date">{{singlePost.date}}</div>
         <div class="post post_title">{{singlePost.title}}</div>
         <div class="post post_text">{{singlePost.text}}</div>
-        <router-link :to="{name:'post', params:{id:singlePost.id}}" style="text-decoration: none">
+        <router-link :to="{name:'post', params:{id:singlePost.id, totalPosts: totalPosts}}" class="router-link">
           <div class="post btn_learn_more">learn more</div>
         </router-link>
       </div>
@@ -26,13 +26,16 @@
     name:'todoItem',
     props:[
       'singlePost',
-      'index'
+      'totalPosts'
     ]
   }
 </script>
 
 <style lang="scss" scoped>
   @import "../../../../assets/styles/variables";
+  .router-link {
+    text-decoration: none;
+  }
   .post_pic {
     .figure{
       width: 100%; /* Ширина области */
