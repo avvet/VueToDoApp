@@ -31,7 +31,7 @@
       <div class="divider"></div>
       <div class="bottom_title">You May also Like</div>
       <div class="post_item_container">
-        <div v-for="(post,index) in postsArray" class="post_item">
+        <div v-for="(post,index) in newPostsArray" class="post_item">
           <div class="post_pic">
             <div class="figure">
               <img :src="post.pic" />
@@ -39,9 +39,9 @@
           </div>
           <div class="content_wrapper">
             <div class="post post_date">{{post.date}}</div>
-            <!--<router-link :to="{name:'post', params:{id:index}}" style="text-decoration: none">-->
+            <router-link :to="{name:'post', params:{id:post.id}}" style="text-decoration: none">
               <div class="post post_title">{{post.title}}</div>
-            <!--</router-link>-->
+            </router-link>
           </div>
         </div>
       </div>
@@ -58,41 +58,40 @@
     data(){
       return{
         postsArray: [],
+        newPostsArray:[],
         post:'',
         currentPage: 0,
         pageSize:3,
-        visiblePosts:[],
         postId:''
       }
     },
     components:{
-      'todo-item': todoItem
+      // 'todo-item': todoItem
     },
+    methods:{
+      getRandomFloat( min, max ){
+        return Math.random() * (max - min) + min;
+      },
+      relatedPostsCreate(){
+        let rand = Math.floor(Math.random() * this.postsArray.length);
+
+        while (this.newPostsArray.length < 3 && this.newPostsArray.indexOf(this.postsArray[rand]) === -1) {
+          this.newPostsArray.push(this.postsArray[rand]);
+        }
+        return this.newPostsArray;
+      }
+    },
+
     created(){
       httpWrapper.getPostsFromArray(posts => {
         this.postsArray = posts;
-        // this.updateVisiblePosts();
-
         this.postId = this.$route.params.id;
         this.post = this.postsArray[this.postId];
 
+        this.relatedPostsCreate();
       })
     }
-    // beforeMount(){
-    //   this.updateVisiblePosts();
-    // },
-    // methods:{
-    //   updatePage(pageNumber){
-    //     this.currentPage = pageNumber;
-    //     this.updateVisiblePosts();
-    //   },
-    //   updateVisiblePosts(){
-    //     this.visiblePosts = this.postsArray.slice(this.currentPage * this.pageSize, (this.currentPage * this.pageSize) + this.pageSize);
-    //     if(this.visiblePosts.length === 0 && this.currentPage > 0){
-    //       this.updatePage(this.currentPage -1);
-    //     }
-    //   }
-    // }
+
   }
 </script>
 

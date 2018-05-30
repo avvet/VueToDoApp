@@ -84,6 +84,12 @@
           this.pagesArray.push(i);
         }
         return this.pagesArray;
+      },
+      hasFirst(){
+        return this.rangeStart !== 1;
+      },
+      hasEnd(){
+        return this.rangeEnd < this.totalPages;
       }
     }
   }
