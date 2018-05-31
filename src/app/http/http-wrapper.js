@@ -22,10 +22,17 @@ class HttpWrapperClass {
   }
 
   getPostById(postId, callback) {
+    let options = {
+      params:{
+        '_start': +postId,
+        '_end': +postId + 1
+
+      }
+    };
     axios
-      .get('http://localhost:3000/posts' + DIVIDER + postId)
+      .get('http://localhost:3000/posts', options)
       .then(resp => {
-        callback(resp.data)
+        callback(resp.data[0], resp.headers['x-total-count'])
       })
       .catch(err => {
         console.log(err);

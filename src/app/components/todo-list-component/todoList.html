@@ -16,7 +16,6 @@
       <todo-item v-for="(post,index) in postsArray"
                  :key="post.id"
                  v-bind:singlePost="post"
-                 v-bind:totalPosts="totalPosts"
                  class="post_item"
       ></todo-item>
       <pagin

@@ -31,17 +31,19 @@
       <div class="divider"></div>
       <div class="bottom_title">You May also Like</div>
       <div class="post_item_container">
-        <div v-for="(post,index) in newPostsArray" class="post_item">
-          <div class="post_pic">
-            <div class="figure">
-              <img :src="post.pic" />
+        <div v-for="(relatedPost,index) in newPostsArray" class="post_item">
+          <div>
+            <div class="post_pic">
+              <div class="figure">
+                <img :src="relatedPost.pic" />
+              </div>
             </div>
-          </div>
-          <div class="content_wrapper">
-            <div class="post post_date">{{post.date}}</div>
-            <router-link :to="{name:'post', params:{id:post.id}}" style="text-decoration: none">
-              <div class="post post_title">{{post.title}}</div>
-            </router-link>
+            <div class="content_wrapper">
+              <div class="post post_date">{{relatedPost.date}}</div>
+              <router-link  @click.native="updatePost" :to="{name:'post', params:{id:relatedPost.id}}" style="text-decoration: none">
+                <div class="post post_title">{{relatedPost.title}}</div>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -53,14 +55,9 @@
 <script>
   import {httpWrapper} from "../../http/http-wrapper";
   import todoItem from "../todo-list-component/todo-item/todoItem";
-
   export default {
     data(){
       return{
-        totalPosts: {
-          type: Number,
-          default: 0
-        },
         newPostsArray:[],
         post:'',
         currentPage: 0,
@@ -75,35 +72,38 @@
       getRandomFloat( min, max ){
         return Math.random() * (max - min) + min;
       },
-      relatedPostsCreate(){
+      relatedPostsCreate(totalCount){
         let relatedPostsNumbers = [];
-        this.totalPosts = this.$route.params.totalPosts;
         while (relatedPostsNumbers.length < 3) {
-          let randomNumberRange = Math.floor(Math.random() * this.totalPosts);
+          let randomNumberRange = Math.floor(Math.random() * totalCount);
           let isPostExistsInNewPostsArray = relatedPostsNumbers.indexOf(randomNumberRange) === -1;
           if(isPostExistsInNewPostsArray) {
             relatedPostsNumbers.push(randomNumberRange);
           }
         }
+        this.newPostsArray = [];
         relatedPostsNumbers.map(postId => {
           httpWrapper.getPostById(postId, (post) => {
             this.newPostsArray.push(post);
           })
         });
-        console.log(this.totalPosts,'POSTS');
         console.warn(this.newPostsArray, 'NEW POSTS', relatedPostsNumbers);
-        // return this.newPostsArray;
+      },
+      getNewPost() {
+        this.postId = this.$route.params.id;
+        httpWrapper.getPostById(this.postId,(post, totalCount) => {
+          this.post = post;
+          this.relatedPostsCreate(totalCount);
+        });
+      },
+      updatePost() {
+        this.getNewPost();
+        window.scroll(0,0);
       }
     },
-
     created(){
-      this.postId = this.$route.params.id;
-      httpWrapper.getPostById(this.postId,(post) => {
-        this.post = post;
-      });
-      this.relatedPostsCreate();
+      this.getNewPost();
     }
-
   }
 </script>
 
@@ -124,7 +124,6 @@
         font-family: $main_font;
       }
       nav{
-
         a{
           text-decoration: none;
           color: white;

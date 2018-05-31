@@ -9,7 +9,7 @@
         <div class="post post_date">{{singlePost.date}}</div>
         <div class="post post_title">{{singlePost.title}}</div>
         <div class="post post_text">{{singlePost.text}}</div>
-        <router-link :to="{name:'post', params:{id:singlePost.id, totalPosts: totalPosts}}" class="router-link">
+        <router-link :to="{name:'post', params:{id:singlePost.id}}" class="router-link">
           <div class="post btn_learn_more">learn more</div>
         </router-link>
       </div>
@@ -25,8 +25,7 @@
     },
     name:'todoItem',
     props:[
-      'singlePost',
-      'totalPosts'
+      'singlePost'
     ]
   }
 </script>
