@@ -6,13 +6,13 @@
       <div class="pagin_mid">
         <!--<span>{{current}} from {{totalPages}}</span>-->
         <div class="flex_pagin_wrapper" >
-          <div v-if="hasFirst"><div @click="fetchPosts(1)" class="pagin_item" >1</div></div>
+          <div v-if="hasFirst"><div @click="getAllPosts(1)" class="pagin_item" >1</div></div>
           <div v-if="hasFirst" class="dots">...</div>
           <div class="flex_pagin" v-for="onePage in pages" >
-            <div class="pagin_item" @click="fetchPosts(onePage)" v-bind:class="{active_text: onePage === current}">{{onePage}} </div>
+            <div class="pagin_item" @click="getAllPosts(onePage)" v-bind:class="{active_text: onePage === current}">{{onePage}} </div>
           </div>
           <div v-if="hasEnd" class="dots">...</div>
-          <div v-if="hasEnd"><div @click="fetchPosts(totalPages)" class="pagin_item" >{{totalPages}}</div></div>
+          <div v-if="hasEnd"><div @click="getAllPosts(totalPages)" class="pagin_item" >{{totalPages}}</div></div>
         </div>
       </div>
       <div class="arrows pagin_right" v-bind:class="{disabled: !noNextPage}">
@@ -40,6 +40,7 @@
       pages:this.pages,
       hasFirst:this.hasFirst,
       hasEnd:this.hasEnd
+
     },
     methods:{
       prevPageEvent() {
@@ -54,8 +55,8 @@
         // }
         this.$emit('nextPageEvent')
       },
-      fetchPosts(page){
-        this.$emit('fetchPosts',page);
+      getAllPosts(page){
+        this.$emit('getAllPosts',page);
       }
     }
   }

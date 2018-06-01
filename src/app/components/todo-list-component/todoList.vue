@@ -5,7 +5,8 @@
   import {httpWrapper} from "../../http/http-wrapper";
   import todoItem from "./todo-item/todoItem";
   import Pagin from "../pagin-component/Pagin";
-  import axios from "axios/index";
+  import Search from "../search-component/Search";
+
 
   export default {
     data(){
@@ -17,40 +18,31 @@
         currentPage:1,
         page:'',
         pageRange:2,
-        pagesArray:[]
+        pagesArray:[],
+        search:''
       }
     },
     components:{
       'todo-item': todoItem,
-      'pagin': Pagin
+      'pagin': Pagin,
+      'search': Search
     },
     created(){
-      this.fetchPosts(this.currentPage);
+      this.getAllPosts(this.currentPage);
     },
     methods: {
-      fetchPosts(page){
+      getAllPosts(page){
         this.currentPage = page;
-        let options = {
-          params:{
-            '_page':page,
-            '_limit': this.perPage
-          }
-        };
-        axios
-          .get('http://localhost:3000/posts', options)
-          .then(resp => {
-            this.postsArray = resp.data;
-            this.totalPosts = parseInt(resp.headers['x-total-count']);
-          })
-          .catch(err => {
-            console.log(err);
-          })
+        httpWrapper.getPostsFromArray(this.currentPage, this.perPage,(posts, totalCount) => {
+          this.postsArray = posts;
+          this.totalPosts = totalCount;
+        })
       },
       onPrevPageEvent() {
-        this.fetchPosts(this.prevPage);
+        this.getAllPosts(this.prevPage);
       },
       onNextPageEvent() {
-        this.fetchPosts(this.nextPage)
+        this.getAllPosts(this.nextPage)
       }
     },
     computed: {
@@ -89,6 +81,11 @@
       },
       hasEnd(){
         return this.rangeEnd < this.totalPages;
+      },
+      filteredPostsArray() {
+        return this.postsArray.filter(post => {
+          return post.title.toLowerCase().includes(this.search.toLowerCase())
+        })
       }
     }
   }

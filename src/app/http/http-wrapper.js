@@ -6,27 +6,28 @@ const TODO_PL = 'posts';
 
 
 class HttpWrapperClass {
-  getPostsFromArray(callback,page){
+  getPostsFromArray(page, perPage, callback){
     let options = {
       params:{
-        page: page,
-        per_page: this.perPage,
+        '_page': page,
+        '_limit': perPage
       }
     };
     axios
-      .get(BASE_URL + DIVIDER + TODO_PL, options)
+      .get('http://localhost:3000/posts', options)
       .then(resp => {
         console.log(resp);
-        callback(resp.data);
+        callback(resp.data, parseInt(resp.headers['x-total-count']));
+      })
+      .catch(err => {
+        console.log(err);
       })
   }
-
   getPostById(postId, callback) {
     let options = {
       params:{
         '_start': +postId,
         '_end': +postId + 1
-
       }
     };
     axios

@@ -66,12 +66,9 @@
       }
     },
     components:{
-      // 'todo-item': todoItem
+
     },
     methods:{
-      getRandomFloat( min, max ){
-        return Math.random() * (max - min) + min;
-      },
       relatedPostsCreate(totalCount){
         let relatedPostsNumbers = [];
         while (relatedPostsNumbers.length < 3) {
@@ -151,7 +148,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      /*justify-content: space-between;*/
       .post_date {
         color: #374e89;
         font-size: 14px;
