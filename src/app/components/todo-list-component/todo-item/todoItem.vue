@@ -25,7 +25,7 @@
     },
     name:'todoItem',
     props:[
-      'singlePost'
+      'singlePost',
     ]
   }
 </script>

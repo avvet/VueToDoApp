@@ -19,7 +19,8 @@
         page:'',
         pageRange:2,
         pagesArray:[],
-        search:''
+        search:'',
+        iconSearch:true,
       }
     },
     components:{
@@ -43,6 +44,12 @@
       },
       onNextPageEvent() {
         this.getAllPosts(this.nextPage)
+      },
+      onFocus(){
+        this.iconSearch = false;
+      },
+      onBlur(){
+        this.iconSearch = true;
       }
     },
     computed: {

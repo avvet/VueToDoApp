@@ -16,14 +16,13 @@
   export default{
     data(){
       return{
-        message:'HELLO',
-        search:''
+        message:'HELLO'
 
       }
     },
     props:[
-      'filteredPostsArray',
-      'post'
+      'search',
+      'filteredPostsArray'
     ],
     computed:{
       // filteredPostsArray() {

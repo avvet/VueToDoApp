@@ -63,22 +63,30 @@ body{
 }
 .search_wrapper{
   position: relative;
-  label{
+  .icon_search{
     position: absolute;
-    top: 92px;
-    left: 12px;
-
+    bottom: 25px;
+    left: 97%;
+    font-size: 16px;
+    color: lightgray;
     transition: .15s all ease-in-out;
+    margin-top: 7px;
   }
   .search_input{
     margin-top: 70px;
-    width: 100%;;
+    width: calc(100% - 20px);
     height: 60px;
     border: none;
     border-bottom: 1px solid lightgrey;
-    &:active{
-      border: 1px solid darkgrey;
+    padding-left: 20px;
+    font-size: 18px;
+    &:focus{
+      outline:none;
+      border: 1px solid lightgrey;
     }
+  }
+  .search_input::placeholder{
+    color: lightgray;
   }
 }
 .post_item_container{
