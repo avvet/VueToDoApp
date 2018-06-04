@@ -1,25 +1,52 @@
-<div class="todo-list">
-  <!--<h2 class="main-title">Welcome to VueTube {{msg}}</h2>-->
-  <div id="app">
-    <header class="header">
-      <h1 v-once>{{title}}</h1>
-      <input type="text" id="my_input" placeholder = 'add new task' v-model = 'newToDo' @keyup.enter = 'addToDo'>
-    </header>
-    <div class="main">
-      <ul class="todo-list">
-        <li class="todo-item" v-for = 'todo in todos' :class ="{completed:todo.completed}">
-          <input type="checkbox" v-model = 'todo.completed'>{{todo.name}}
+<div class="post_list_container">
+  <header class="header">
+    <div class="wrapper">
+      <div class="menu_container">
+        <div class="logo">LOGO</div>
+        <nav>
+          <router-link to="/about">About</router-link>
+          <router-link to="/news">News</router-link>
+        </nav>
+      </div>
+      <h1>News</h1>
+    </div>
+  </header>
+  <div class="wrapper">
+    <div class="search_wrapper">
+      <div class="icon_search" v-show="iconSearch">
+        <i class="fa fa-search"></i>
+      </div>
+      <input class="search_input" placeholder='Search...' type="text" v-model="search" @focus="onFocus" @blur="onBlur">
+      <div class="divider"></div>
+    </div>
+    <!--<search-->
+      <!--v-bind:filteredPostsArray="filteredPostsArray"-->
+    <!--&gt;</search>-->
+    <div class="post_item_container">
+      <todo-item v-for="(post,index) in filteredPostsArray"
+                 :key="post.id"
+                 v-bind:singlePost="post"
+                 class="post_item"
+      ></todo-item>
+      <pagin
+              v-bind:current="currentPage"
+              v-bind:nextPage="nextPage"
+              v-bind:prevPage="prevPage"
+              v-bind:noPrevPage="noPrevPage"
+              v-bind:noNextPage="noNextPage"
+              v-bind:totalPages="totalPages"
 
-        </li>
-      </ul>
+              v-bind:hasFirst="hasFirst"
+              v-bind:hasEnd="hasEnd"
+
+              v-bind:pages="pages"
+
+              v-on:prevPageEvent = "onPrevPageEvent"
+              v-on:nextPageEvent = "onNextPageEvent"
+              v-on:getAllPosts = "getAllPosts"
+
+             class="pagin"
+      ></pagin>
     </div>
-    <div class="btns">
-      <button class="btn remain-btn" @click = "remaining" >to do</button>
-      <button class="btn done-btn" @click = "done">done</button>
-    </div>
-    <footer>
-      <span id = "phrase"> 0 tasks</span>
-    </footer>
   </div>
-
 </div>

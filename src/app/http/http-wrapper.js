@@ -2,33 +2,45 @@ import axios from "axios/index";
 
 const BASE_URL = 'http://localhost:3000';
 const DIVIDER = '/';
-const USER_PL = 'data-users';
+const TODO_PL = 'posts';
 
-let usersArray = [];
 
 class HttpWrapperClass {
-  getUserById(id) {
+  getPostsFromArray(page, perPage, callback){
+    let options = {
+      params:{
+        '_page': page,
+        '_limit': perPage
+      }
+    };
     axios
-      .get(BASE_URL + DIVIDER + USER_PL + DIVIDER + id)
-      .then((response) => {
-        console.log(response.data);
+      .get('http://localhost:3000/posts', options)
+      .then(resp => {
+        console.log(resp);
+        callback(resp.data, parseInt(resp.headers['x-total-count']));
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(err => {
+        console.log(err);
+      })
   }
-  getAllUsers(returnUsersCallback) {
+  getPostById(postId, callback) {
+    let options = {
+      params:{
+        '_start': +postId,
+        '_end': +postId + 1
+      }
+    };
     axios
-      .get(BASE_URL + DIVIDER + USER_PL)
-      .then((resp) => {
-        resp.data.map(user => usersArray.push(user.last_name));
-        returnUsersCallback(usersArray);
+      .get('http://localhost:3000/posts', options)
+      .then(resp => {
+        callback(resp.data[0], resp.headers['x-total-count'])
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(err => {
+        console.log(err);
+      })
   }
 }
 
 const httpWrapper = new HttpWrapperClass();
+
 export {httpWrapper}
